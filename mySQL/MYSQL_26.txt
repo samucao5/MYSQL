@@ -1,0 +1,62 @@
+-- CRIAÇÃO DAS TABELAS
+CREATE TABLE clientes (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    idade INTEGER,
+    cidade TEXT
+);
+
+CREATE TABLE pedidos (
+    id INTEGER PRIMARY KEY,
+    cliente_id INTEGER,
+    produto TEXT,
+    quantidade INTEGER,
+    preco_unitario REAL,
+    data TEXT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+-- INSERÇÃO DE DADOS
+INSERT INTO clientes (id, nome, idade, cidade) VALUES
+(1, 'Ana', 22, 'Sao Paulo'),
+(2, 'Bruno', 35, 'Rio de Janeiro'),
+(3, 'Carla', 17, 'Belo Horizonte'),
+(4, 'Daniel', 68, 'Sao Paulo'),
+(5, 'Eduarda', 45, 'Porto Alegre'),
+(6, 'Robert', 27, 'Paraiba do Sul');
+
+INSERT INTO pedidos (id, cliente_id, produto, quantidade, preco_unitario, data) VALUES
+(1, 1, 'Camiseta', 2, 50.0, '2024-01-10'),
+(2, 1, 'Calca', 1, 120.0, '2024-01-15'),
+(3, 2, 'Tenis', 1, 200.0, '2024-02-05'),
+(4, 3, 'Bone', 3, 30.0, '2024-03-01'),
+(5, 4, 'Jaqueta', 1, 300.0, '2024-03-10'),
+(6, 4, 'Camiseta', 2, 50.0, '2024-03-15'),
+(7, 5, 'Tenis', 2, 200.0, '2024-04-01');
+
+SELECT * FROM clientes WHERE cidade = "Sao Paulo" AND idade > 30;
+
+SELECT clientes.nome,pedidos.produto,quantidade * preco_unitario AS valor_total FROM clientes JOIN pedidos ON pedidos.cliente_id = clientes.id;
+
+SELECT clientes.nome FROM clientes LEFT JOIN pedidos ON pedidos.cliente_id = clientes.id WHERE pedidos.cliente_id IS NULL;
+
+SELECT count (*) AS produtos_comprados ,clientes.nome FROM clientes JOIN pedidos ON pedidos.cliente_id = clientes.id GROUP BY pedidos.cliente_id;
+
+SELECT nome,idade, 
+case
+WHEN idade < 18 THEN "menor de idade"
+WHEN idade >= 18 AND idade <= 65 THEN "adulto"
+ELSE "idoso"
+END AS situacao_idade
+FROM clientes;
+
+SELECT clientes.nome, pedidos.data FROM clientes JOIN pedidos ON pedidos.cliente_id = clientes.id ORDER BY pedidos.data ASC;
+
+SELECT produto, quantidade * preco_unitario AS valor_total FROM pedidos where valor_total > 150;
+
+SELECT clientes.nome AS compraram_tenis FROM clientes JOIN pedidos ON pedidos.cliente_id = clientes.id WHERE pedidos.produto = "Tenis";
+
+SELECT clientes.nome,SUM(pedidos.quantidade * pedidos.preco_unitario) AS total_gasto
+FROM clientes
+JOIN pedidos ON clientes.id = pedidos.cliente_id
+GROUP BY clientes.id;
