@@ -1,0 +1,21 @@
+CREATE TABLE Funcionarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    salario REAL,
+    departamento TEXT,
+    idade INTEGER
+);
+
+INSERT INTO Funcionarios (id, nome, salario, departamento, idade) VALUES
+(1, 'Ana', 4500.00, 'RH', 28),
+(2, 'Bruno', 5200.00, 'TI', 35),
+(3, 'Carlos', 4800.00, 'RH', 42),
+(4, 'Daniela', 6000.00, 'TI', 38),
+(5, 'Eduarda', 3900.00, 'Financeiro', 26);
+
+SELECT * FROM funcionarios;
+SELECT COUNT (*) AS numero_de_funcionarios FROM funcionarios;
+SELECT SUM(salario) AS soma_dos_salarios FROM funcionarios;
+SELECT AVG(salario) AS media_dos_salarios FROM funcinarios;
+SELECT MIN(salario) AS menor_salario FROM funcionarios;
+SELECT MAX(salario) AS maior_salario FROM funcionarios;

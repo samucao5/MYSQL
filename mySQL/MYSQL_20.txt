@@ -1,0 +1,28 @@
+CREATE TABLE Usuarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    sobrenome TEXT,
+    email TEXT
+);
+
+INSERT INTO Usuarios (id, nome, sobrenome, email) VALUES
+(1, 'Ana', 'Silva', 'ana.silva@email.com'),
+(2, 'Bruno', 'Souza', 'bruno.souza@email.com'),
+(3, 'Carlos', 'Oliveira', 'carlos.oliveira@email.com'),
+(4, 'daniela', 'Costa', 'daniela.costa@email.com'),
+(5, 'Eduardo', 'Pereira', 'eduardo.p@email.com'),
+(6, 'fernanda', 'Moraes', 'fernanda.m@email.com');
+
+SELECT nome AS nome_iniciados_com_a FROM usuarios WHERE nome LIKE 'A%';
+
+SELECT nome AS nome_que_terminam_com_a FROM usuarios WHERE nome LIKE '%a';
+
+SELECT nome AS nome_iniciados_com_d FROM usuarios WHERE nome LIKE 'D%';
+
+SELECT nome || ' ' ||sobrenome AS nome_completo FROM usuarios;
+
+SELECT SUBSTR(nome,1,3) AS nome_cortado FROM usuarios;
+
+SELECT email AS email_com_oliveira_no_meio FROM usuarios WHERE email LIKE '%oliveira%';
+
+SELECT nome AS n_na_segunda_posicao FROM usuarios WHERE nome LIKE "_n%";

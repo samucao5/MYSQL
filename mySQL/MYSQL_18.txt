@@ -1,0 +1,29 @@
+CREATE TABLE ListaEmailPromocoes (
+    id INTEGER PRIMARY KEY,
+    email TEXT
+);
+
+CREATE TABLE ListaEmailNoticias (
+    id INTEGER PRIMARY KEY,
+    email TEXT
+);
+
+INSERT INTO ListaEmailPromocoes (id, email) VALUES
+(1, 'ana@email.com'),
+(2, 'bruno@email.com'),
+(3, 'carla@email.com');
+
+INSERT INTO ListaEmailNoticias (id, email) VALUES
+(1, 'bruno@email.com'),
+(2, 'diego@email.com'),
+(3, 'carla@email.com');
+
+SELECT email FROM ListaEmailPromocoes UNION SELECT email FROM ListaEmailNoticias;
+
+SELECT email FROM LIstaEmailPromocoes UNION ALL SELECT email FROM ListaEmailNoticias;
+
+SELECT email AS ambas_as_listas FROM ListaEmailPromocoes INTERSECT SELECT email FROM LIstaEmailNoticias;
+
+SELECT email AS somente_na_lista_de_promocoes FROM ListaEmailPromocoes EXCEPT SELECT email FROM ListaemailNoticias;
+
+SELECT email AS somente_na_lista_de_noticia FROM LIstaEmailNoticias EXCEPT SELECT email FROM ListaEmailPRomocoes;

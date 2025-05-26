@@ -1,0 +1,21 @@
+CREATE TABLE livros(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  	titulo TEXT,
+  	autor TEXT,
+  	preco REAL
+  
+);
+
+INSERT INTO livros(titulo,autor,preco) VALUES ("boa noite punpun","inio asano",29.70);
+INSERT INTO livros(titulo,autor,preco) VALUES ("1984","George orwell",40.00);
+INSERT INTO livros(titulo,autor,preco) VALUES ("a revolucao dos bichos","George orwell",15.54); 
+INSERT INTO livros(titulo,autor,preco) VALUES ("Berserk","kentaro miura",32.51);
+INSERT INTO livros(titulo,autor,preco) VALUES ("eleanor e park","rainbow rowell",30.00); 
+
+SELECT * FROM livros;
+
+SELECT * FROM livros WHERE preco > 25;
+SELECT * FROM livros WHERE autor = "George orwell";
+SELECT * FROM livros ORDER BY preco ASC;
+SELECT * FROM livros ORDER BY titulo ASC;
+SELECT * FROM livros ORDER BY preco ASC LIMIT 3;

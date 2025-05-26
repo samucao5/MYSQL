@@ -1,0 +1,19 @@
+CREATE TABLE funcionario(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  	nome TEXT,
+  	cargo TEXT,
+  	salario REAL
+);
+
+INSERT INTO funcionario(nome,cargo,salario) VALUES ("samuel","programador",3600);
+INSERT INTO funcionario(nome,cargo,salario) VALUES ("maria","RH",4000);
+INSERT INTO funcionario(nome,cargo,salario) VALUES ("manuel","gerente",5000);
+INSERT INTO funcionario(nome,cargo,salario) VALUES ("fernando","administracao",2000);
+INSERT INTO funcionario(nome,cargo,salario) VALUES ("beatriz","dono",10000);
+
+SELECT * FROM funcionario;
+SELECT * FROM funcionario WHERE salario > 3000;
+SELECT * FROM funcionario WHERE cargo = "gerente";
+SELECT * FROM funcionario ORDER BY salario DESC;
+SELECT * FROM funcionario ORDER BY nome ASC;
+SELECT * FROM funcionario ORDER BY salario DESC LIMIT 3;

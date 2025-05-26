@@ -1,0 +1,29 @@
+CREATE TABLE FilmesAssistidos2023 (
+    id INTEGER PRIMARY KEY,
+    titulo TEXT
+);
+
+CREATE TABLE FilmesAssistidos2024 (
+    id INTEGER PRIMARY KEY,
+    titulo TEXT
+);
+
+INSERT INTO FilmesAssistidos2023 (id, titulo) VALUES
+(1, 'Matrix'),
+(2, 'Titanic'),
+(3, 'Avatar');
+
+INSERT INTO FilmesAssistidos2024 (id, titulo) VALUES
+(1, 'Matrix'),
+(2, 'Oppenheimer'),
+(3, 'Barbie');
+
+SELECT titulo AS assistidos_em_qualquer_dos_anos FROM FilmesAssistidos2023 UNION SELECT titulo FROM FilmesAssistidos2024;
+
+SELECT titulo AS assistidos_nos_dois_anos FROM FIlmesAssistidos2023 INTERSECT SELECT titulo FROM FilmesAssistidos2024;
+
+SELECT titulo AS assistidos_somente_em_2023 FROM FilmesAssistidos2023 EXCEPT SELECT titulo FROM filmesassistidos2024;
+
+SELECT titulo AS assistidos_somente_em_2024 FROM FilmesAssistidos2024 EXCEPT SELECT titulo FROM filmesassistidos2023;
+
+SELECT titulo AS todos_os_filmes FROM FIlmesAssistidos2023 UNION ALL SELECT titulo FROM filmesassistidos2024;

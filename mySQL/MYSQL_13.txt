@@ -1,0 +1,35 @@
+CREATE TABLE Funcionarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    setor TEXT,
+    salario REAL
+);
+
+INSERT INTO Funcionarios (id, nome, setor, salario) VALUES
+(1, 'Carlos', 'Vendas', 3000),
+(2, 'Fernanda', 'Vendas', 3500),
+(3, 'Julia', 'RH', 2800),
+(4, 'Lucas', 'TI', 4000),
+(5, 'Mariana', 'TI', 4500),
+(6, 'Pedro', 'RH', 2700),
+(7, 'Rafael', 'Vendas', 3200),
+(8, 'Sofia', 'TI', 4300);
+
+SELECT * FROM funcionarios;
+SELECT setor,AVG(salario) AS salario_medio FROM funcionarios GROUP BY setor;
+SELECT setor,AVG(salario) AS salario_medio FROM funcionarios GROUP BY setor HAVING salario_medio > 3500;
+SELECT id,nome,setor,salario,
+case
+WHEN salario > 4000 THEN "bem pago"
+ELSE "regular"
+
+END as situacao
+FROM funcionarios;
+
+SELECT case
+WHEN salario > 4000 THEN "bem pago"
+ELSE "regular"
+END as situacao, 
+COUNT (*) AS valores FROM funcionarios GROUP BY situacao;
+
+SELECT setor, COUNT (*) AS numeros_de_funcionarios FROM funcionarios GROUP BY setor;

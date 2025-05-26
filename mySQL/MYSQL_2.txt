@@ -1,0 +1,27 @@
+CREATE TABLE livros(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  	titulo TEXT,
+  	autor TEXT,
+  	preco REAL
+);
+
+INSERT INTO livros(titulo,autor,preco) VALUES ("Dom Casmurro","Machado de Assis",34.90);
+INSERT INTO livros(titulo,autor,preco) VALUES ("A Revolucao dos Bichos","George Orwell",27.50);
+INSERT INTO livros(titulo,autor,preco) VALUES ("O Pequeno Principe"," Antoine de Saint-Exupery",22.00);
+
+SELECT * FROM livros;
+
+INSERT INTO livros(titulo,autor,preco) VALUES ("1984","George Orwell",39.90);
+INSERT INTO livros(titulo,autor,preco) VALUES ("capitaes de areia","jorge amado",28.00);
+
+SELECT * FROM livros;
+
+UPDATE livros SET preco = 30.00 WHERE id = 1;
+UPDATE livros SET autor = "Saint-Exupery" WHERE id = 3;
+
+SELECT * FROM livros;
+
+DELETE FROM livros where id = 5;
+DELETE FROM livros where id = 2;
+
+SELECT * FROM livros;

@@ -1,0 +1,21 @@
+CREATE TABLE Produtos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    preco REAL,
+    quantidade INTEGER,
+    categoria TEXT
+);
+
+INSERT INTO Produtos (id, nome, preco, quantidade, categoria) VALUES
+(1, 'Caneta', 2.50, 100, 'Papelaria'),
+(2, 'Lapis', 1.50, 200, 'Papelaria'),
+(3, 'Caderno', 15.00, 80, 'Papelaria'),
+(4, 'Mouse', 50.00, 40, 'Informatica'),
+(5, 'Teclado', 120.00, 30, 'Informatica');
+
+SELECT * FROM produtos;
+SELECT Count (*) AS quantos FROM produtos;
+SELECT SUM(quantidade) FROM produtos;
+SELECT AVG(preco) FROM produtos;
+SELECT MIN(preco) FROM produtos;
+SELECT MAX(preco) FROM produtos;

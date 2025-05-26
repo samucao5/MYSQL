@@ -1,0 +1,27 @@
+CREATE TABLE alunos(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	nome TEXT,
+  	idade INTEGER,
+  	curso TEXT
+);
+
+INSERT INTO alunos (nome,idade,curso) VALUES ("Lucas",21,"engenharia");
+INSERT INTO alunos(nome,idade,curso) VALUES ("Mariana",19,"design");
+INSERT INTO alunos(nome,idade,curso) VALUES ("carlos",23,"administracao");
+
+SELECT * FROM alunos;
+
+INSERT INTO alunos(nome,idade,curso) VALUES ("fernanda",22,"direito");
+INSERT INTO alunos(nome,idade,curso) VALUES ("joao",20,"psicologia");
+
+SELECT * FROM alunos;
+
+UPDATE alunos SET idade = 22 WHERE id = 1;
+UPDATE alunos SET curso ="marketing" WHERE id = 3;
+
+SELECT * FROM alunos;
+
+DELETE FROM alunos WHERE id = 2;
+DELETE FROM alunos WHERE id = 5;
+
+SELECT * FROM alunos;

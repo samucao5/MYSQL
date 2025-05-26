@@ -1,0 +1,34 @@
+-- Tabela de funcionarios
+CREATE TABLE funcionarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    salario_base REAL,
+    bonus REAL,
+    descontos REAL
+);
+
+-- Inserção de dados na tabela funcionarios
+INSERT INTO funcionarios (nome, salario_base, bonus, descontos) VALUES
+('Ana', 3500, 500, 300),
+('Bruno', 4200, 800, 500),
+('Carla', 5000, 1000, 700);
+
+-- Tabela de horas extras
+CREATE TABLE horas_extras (
+    id INTEGER PRIMARY KEY,
+    funcionario_id INTEGER,
+    horas INTEGER,
+    valor_hora REAL
+);
+
+-- Inserção de dados na tabela horas_extras
+INSERT INTO horas_extras (funcionario_id, horas, valor_hora) VALUES
+(1, 10, 25),
+(2, 5, 30),
+(3, 8, 40);
+
+SELECT nome, salario_base + bonus AS salario_bruto FROM funcionarios;
+
+SELECT nome, ((salario_base + bonus)- descontos) AS salario_liquido FROM funcionarios;
+
+SELECT descontos / 100 AS porcentagem_de_desconto FROM funcionarios;

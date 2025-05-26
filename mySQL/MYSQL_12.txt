@@ -1,0 +1,39 @@
+CREATE TABLE Produtos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    categoria TEXT,
+    preco REAL,
+    estoque INTEGER
+);
+
+INSERT INTO Produtos (id, nome, categoria, preco, estoque) VALUES
+(1, 'Caneta', 'Papelaria', 2.50, 100),
+(2, 'Lapis', 'Papelaria', 1.50, 200),
+(3, 'Caderno', 'Papelaria', 15.00, 80),
+(4, 'Mouse', 'Informatica', 50.00, 40),
+(5, 'Teclado', 'Informatica', 120.00, 30),
+(6, 'Monitor', 'Informatica', 900.00, 10),
+(7, 'Borracha', 'Papelaria', 1.20, 150),
+(8, 'Pen Drive', 'Informatica', 70.00, 25),
+(9, 'Livro', 'Educacao', 35.00, 60),
+(10, 'Agenda', 'Papelaria', 18.00, 20);
+
+SELECT * FROM produtos;
+SELECT categoria, AVG(preco) AS valores_medios FROM produtos GROUP BY categoria;
+SELECT categoria, AVG(preco) AS valores_medios FROM produtos GROUP BY categoria HAVING valores_medios > 50;
+SELECT id,nome,categoria,preco,
+case
+	WHEN preco <= 20 THEN "barato"
+    WHEN preco >= 21 AND preco < 100 THEN "intermediario"
+    ELSE "caro"
+END AS situacao
+FROM produtos;
+
+SELECT case
+	WHEN preco <= 20 THEN "barato"
+    WHEN preco >= 21 AND preco < 100 THEN "intermediario"
+    ELSE "caro"
+END AS situacao,
+COUNT (*) FROM produtos GROUP BY situacao;
+
+SELECT categoria, COUNT (*) FROM produtos GROUP BY categoria;

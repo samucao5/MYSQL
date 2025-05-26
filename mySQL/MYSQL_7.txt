@@ -1,0 +1,19 @@
+CREATE TABLE clientes(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  	nome TEXT,
+  	idade INTEGER,
+  	estado TEXT
+);
+
+INSERT INTO clientes(nome,idade,estado) VALUES ("samuel",19,"RJ");
+INSERT INTO clientes(nome,idade,estado) VALUES ("maria",20,"SP");
+INSERT INTO clientes(nome,idade,estado) VALUES ("antonio",50,"ES");
+INSERT INTO clientes(nome,idade,estado) VALUES ("beatriz",21,"SP");
+INSERT INTO clientes(nome,idade,estado) VALUES ("joao",15,"RJ");
+
+SELECT * FROM clientes;
+SELECT * FROM clientes WHERE estado = "SP";
+SELECT * FROM clientes WHERE idade < 30;
+SELECT * FROM clientes ORDER BY estado ASC;
+SELECT * FROM clientes WHERE estado = "RJ" ORDER BY idade ASC;
+SELECT * FROM clientes ORDER BY idade ASC LIMIT 5;

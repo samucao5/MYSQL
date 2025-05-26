@@ -1,0 +1,33 @@
+-- Tabela de autores
+CREATE TABLE autores (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+-- Tabela de livros
+CREATE TABLE livros (
+    id INTEGER PRIMARY KEY,
+    titulo TEXT,
+    autor_id INTEGER
+);
+
+-- Inserção de dados
+INSERT INTO autores (nome) VALUES
+('Machado de Assis'),
+('Clarice Lispector'),
+('Graciliano Ramos'),
+('Monteiro Lobato');
+
+INSERT INTO livros (titulo, autor_id) VALUES
+('Dom Casmurro', 1),
+('MemOrias Postumas de Bras Cubas', 1),
+('A Hora da Estrela', 2),
+('Vidas Secas', 3);
+
+SELECT livros.titulo, autores.nome FROM livros INNER JOIN autores ON autores.id = livros.autor_id;
+
+SELECT autores.nome, livros.titulo FROM autores LEFT JOIN livros ON livros.autor_id = autores.id;
+
+SELECT autores.nome, livros.titulo FROM autores LEFT JOIN livros ON livros.autor_id = autores.id WHERE livros.autor_id IS NULL;
+
+SELECT COUNT (*) AS numeros_de_obras, autores.nome FROM autores LEFT JOIN livros ON livros.autor_id = autores.id GROUP BY autores.id ;

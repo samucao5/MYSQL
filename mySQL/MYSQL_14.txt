@@ -1,0 +1,35 @@
+CREATE TABLE Pedidos (
+    id INTEGER PRIMARY KEY,
+    cliente TEXT,
+    data TEXT,
+    valor REAL
+);
+
+INSERT INTO Pedidos (id, cliente, data, valor) VALUES
+(1, 'Ana', '2024-01-10', 250.00),
+(2, 'Bruno', '2024-01-15', 120.00),
+(3, 'Carla', '2024-02-02', 300.00),
+(4, 'Diego', '2024-02-10', 75.00),
+(5, 'Ana', '2024-02-20', 180.00),
+(6, 'Bruno', '2024-03-01', 450.00),
+(7, 'Fernanda', '2024-03-05', 600.00),
+(8, 'Carla', '2024-03-12', 90.00),
+(9, 'Ana', '2024-03-25', 230.00),
+(10, 'Diego', '2024-04-01', 120.00);
+
+SELECT * FROM pedidos;
+SELECT cliente, SUM(valor) AS soma_total FROM pedidos GROUP BY cliente;
+SELECT cliente, SUM(valor) AS soma_total FROM pedidos GROUP BY cliente HAVING soma_total > 500;
+SELECT id,cliente,data,valor,
+case 
+	WHEN valor <= 100 THEN "baixo"
+	WHEN valor >= 101 AND valor <= 300 THEN "medio"
+    ELSE "alto"
+END AS situacao
+FROM pedidos;
+
+SELECT case 
+	WHEN valor <= 100 THEN "baixo"
+	WHEN valor >= 101 AND valor <= 300 THEN "medio"
+    ELSE "alto"
+END AS situacao, COUNT (*) AS valores FROM pedidos GROUP BY situacao;

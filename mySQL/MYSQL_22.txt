@@ -1,0 +1,34 @@
+CREATE TABLE produtos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    preco REAL,
+    imposto REAL,
+    desconto REAL
+);
+
+INSERT INTO produtos (nome, preco, imposto, desconto) VALUES
+('notebook', 3000, 450, 200),
+('smartphone', 2000, 300, 150),
+('tablet', 1500, 225, 100);
+
+
+CREATE TABLE vendas (
+    id INTEGER PRIMARY KEY,
+    produto_id INTEGER,
+    quantidade INTEGER,
+    total REAL
+);
+
+
+INSERT INTO vendas (produto_id, quantidade, total) VALUES
+(1, 3, 9450),
+(2, 5, 10000),
+(3, 2, 3000);
+
+SELECT nome,preco,imposto, preco + imposto AS preco_total FROM produtos;
+
+SELECT nome,preco,imposto, ((preco + imposto)- desconto ) AS preco_final FROM produtos;
+
+SELECT total / quantidade AS preco_medio FROM vendas;
+
+SELECT nome, imposto / 100 AS porcentagem_imposto FROM produtos;

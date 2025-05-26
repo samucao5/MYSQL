@@ -1,0 +1,38 @@
+CREATE TABLE Filmes (
+    id INTEGER PRIMARY KEY,
+    titulo TEXT,
+    genero TEXT,
+    ano INTEGER,
+    avaliacao REAL
+);
+
+INSERT INTO Filmes (id, titulo, genero, ano, avaliacao) VALUES
+(1, 'Matrix', 'Ficcao Cientifica', 1999, 8.7),
+(2, 'Titanic', 'Romance', 1997, 7.9),
+(3, 'O Senhor dos Aneis', 'Fantasia', 2001, 8.8),
+(4, 'Vingadores: Ultimato', 'Acao', 2019, 8.4),
+(5, 'Parasita', 'Drama', 2019, 8.6),
+(6, 'Toy Story', 'Animacao', 1995, 8.3),
+(7, 'Coringa', 'Drama', 2019, 8.5),
+(8, 'Pantera Negra', 'Acao', 2018, 7.3),
+(9, 'Divertida Mente', 'Animacao', 2015, 8.1),
+(10, 'A Origem', 'Ficcao Cientifica', 2010, 8.8);
+
+SELECT * FROM filmes;
+SELECT genero, AVG(avaliacao) AS classificacao FROM filmes GROUP BY genero;
+SELECT genero, AVG(avaliacao) AS classificacao FROM filmes GROUP BY genero HAVING classificacao > 8;
+SELECT id, titulo, genero, ano, avaliacao,
+CASE
+	WHEN avaliacao < 7 THEN "RUIM"
+	WHEN avaliacao >= 7 AND avaliacao <= 8.4 THEN "BOA"
+    ELSE "EXCELENTE"
+END AS situacao 
+FROM filmes;
+
+SELECT 
+CASE
+	WHEN avaliacao < 7 THEN "RUIM"
+	WHEN avaliacao >= 7 AND avaliacao <= 8.4 THEN "BOA"
+    ELSE "EXCELENTE"
+END AS situacao,
+COUNT (*) FROM filmes GROUP BY situacao;

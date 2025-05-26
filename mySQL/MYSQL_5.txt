@@ -1,0 +1,23 @@
+CREATE TABLE produtos(
+	id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  	produto TEXT, 
+  	categoria TEXT,
+  	preco REAL
+  
+);
+
+INSERT INTO produtos(produto,categoria,preco) VALUES ("geladeira","eletronico",2000);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("lampada","eletronico",5.24);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("vassoura","limpeza",20);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("panela","material",20);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("computador","eletronico",120);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("prato","alimentos",20);
+INSERT INTO produtos(produto,categoria,preco) VALUES ("caneca","alimentos",7); 
+
+SELECT * FROM produtos;
+
+SELECT * FROM produtos WHERE categoria = "eletronico";
+SELECT * FROM produtos WHERE preco < 100;
+SELECT * FROM produtos ORDER BY preco DESC;
+SELECT * FROM produtos WHERE categoria = "alimentos" ORDER BY produto asc;
+SELECT * FROM produtos ORDER BY produto DESC LIMIT 4;

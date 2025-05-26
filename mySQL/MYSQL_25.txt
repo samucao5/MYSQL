@@ -1,0 +1,34 @@
+-- Tabela de departamentos
+CREATE TABLE departamentos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+-- Tabela de empregados
+CREATE TABLE empregados (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    departamento_id INTEGER
+);
+
+-- Inserção de dados
+INSERT INTO departamentos (nome) VALUES
+('Recursos Humanos'),
+('Financeiro'),
+('TI'),
+('Marketing');
+
+INSERT INTO empregados (nome, departamento_id) VALUES
+('Joao', 1),
+('Maria', 3),
+('Pedro', NULL),
+('Ana', 3),
+('Lucas', 2);
+
+SELECT empregados.nome, departamentos.nome FROM empregados INNER JOIN departamentos ON departamentos.id = empregados.departamento_id;
+
+SELECT empregados.nome, departamentos.nome FROM empregados LEFT JOIN departamentos ON departamentos.id = empregados.departamento_id;
+
+SELECT COUNT (*) AS numero_de_funcionarios_por_departamento, departamentos.nome FROM departamentos LEFT JOIN empregados ON departamentos.id = empregados.departamento_id GROUP BY departamentos.id;
+
+SELECT departamentos.nome FROM departamentos LEFT JOIN empregados ON departamentos.id = empregados.departamento_id WHERE empregados.departamento_id IS NULL;

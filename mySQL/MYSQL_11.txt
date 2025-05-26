@@ -1,0 +1,37 @@
+CREATE TABLE Alunos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    turma TEXT,
+    nota REAL
+);
+
+INSERT INTO Alunos (id, nome, turma, nota) VALUES
+(1, 'Ana', 'A', 8.5),
+(2, 'Bruno', 'A', 5.0),
+(3, 'Carla', 'A', 6.0),
+(4, 'Diego', 'B', 7.5),
+(5, 'Eduarda', 'B', 4.0),
+(6, 'Felipe', 'B', 9.0),
+(7, 'Giovana', 'C', 6.5),
+(8, 'Henrique', 'C', 3.5),
+(9, 'Isabela', 'C', 8.0),
+(10, 'Joao', 'C', 5.5);
+
+SELECT * FROM alunos;
+SELECT turma, AVG(nota) AS notas FROM alunos GROUP BY turma;
+SELECT turma, AVG(nota) AS notas FROM alunos GROUP BY turma HAVING notas > 6;
+SELECT id,nome,turma,nota,
+case 
+	WHEN nota >= 6 THEN "aprovado" 
+    ELSE "reprovado" 
+END AS situacao 
+FROM Alunos ;
+
+SELECT
+case
+ 	WHEN nota >= 6 then "aprovado"
+	else "reprovado"
+END AS situacao,COUNT (*) AS valores
+FROM alunos GROUP BY situacao ;
+
+SELECT turma, COUNT (*) AS valores_de_alunos FROM alunos GROUP BY turma;

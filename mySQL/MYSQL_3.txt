@@ -1,0 +1,18 @@
+CREATE CREATE alunos(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+  	nome TEXT,
+  	idade INTEGER,
+  	curso TEXT;
+);
+
+INSERT INTO alunos(nome,idade,curso) VALUES ("alvez",19,"automacao");
+INSERT INTO alunos(nome,idade,curso) VALUES ("beatriz",22,"direito");
+INSERT INTO alunos(nome,idade,curso) VALUES ("zoro",30,"engenharia");
+INSERT INTO alunos(nome,idade,curso) VALUES ("samuel",20,"eng.software");
+
+SELECT * FROM alunos;
+SELECT * FROM alunos WHERE idade >= 21;
+SELECT * FROM alunos WHERE curso = "direito";
+SELECT * FROM alunos ORDER BY nome ASC;
+SELECT * FROM alunos ORDER BY idade DESC;
+SELECT * FROM alunos ORDER BY idade DESC LIMITS 2;

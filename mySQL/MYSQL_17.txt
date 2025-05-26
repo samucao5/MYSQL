@@ -1,0 +1,31 @@
+CREATE TABLE Candidatos2024 (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE Candidatos2025 (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+INSERT INTO Candidatos2024 (id, nome) VALUES
+(1, 'Joao'),
+(2, 'Lucas'),
+(3, 'Marina'),
+(4, 'Paula');
+
+INSERT INTO Candidatos2025 (id, nome) VALUES
+(1, 'Lucas'),
+(2, 'Paula'),
+(3, 'Rafael'),
+(4, 'Tatiane');
+
+SELECT nome FROM candidatos2024 UNION SELECT nome FROM candidatos2025;
+
+SELECT nome FROM candidatos2024 INTERSECT SELECT nome FROM candidatos2025;
+
+SELECT nome AS participaram_somente_de_2025 FROM candidatos2024 EXCEPT SELECT nome FROM candidatos2025;
+
+SELECT nome AS participaram_somente_de_2024 FROM candidatos2025 EXPECT SELECT nome FROM candidatos2024;
+
+SELECT nome AS todos_os_nomes FROM candidatos2024 UNION ALL SELECT nome FROM candidatos2025;

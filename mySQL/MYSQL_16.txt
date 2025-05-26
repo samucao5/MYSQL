@@ -1,0 +1,31 @@
+CREATE TABLE ClientesOnline (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE ClientesLojaFisica (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+INSERT INTO ClientesOnline (id, nome) VALUES
+(1, 'Ana'),
+(2, 'Bruno'),
+(3, 'Carla'),
+(4, 'Diego');
+
+INSERT INTO ClientesLojaFisica (id, nome) VALUES
+(1, 'Bruno'),
+(2, 'Diego'),
+(3, 'Eduarda'),
+(4, 'Fernanda');
+
+SELECT  nome FROM ClientesOnline UNION SELECT nome FROM ClientesLojaFisica;
+
+SELECT nome FROM ClientesOnline UNION ALL SELECT nome FROM ClientesLojaFisica;
+
+SELECT nome FROM ClientesOnline INTERSECT SELECT nome FROM ClientesLojaFisica;
+
+SELECT nome AS clientes_online FROM ClientesOnline EXCEPT SELECT nome AS clientes_presencial FROM ClientesLojaFisica;
+
+SELECT nome AS clientes_presencial FROM ClientesLojaFisica EXCEPT SELECT nome AS ClientesOnline FROM ClientesOnline;
