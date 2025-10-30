@@ -503,7 +503,7 @@ SELECT rm.ReceitaMateriaisID, rm.ReceitaCraftingID, Itens.NomeItem, rm.Quantidad
 INNER JOIN Itens ON rm.ItemID_Material = Itens.ItemID;
 
 CREATE OR REPLACE VIEW vw_BestiarioDeLoot AS 
-SELECT monstros.NomeMonstro, Itens.NomeItem, ml.ChanceDrop, ml.QuantidadeMax FROM monstroloot ml
+SELECT monstros.NomeMonstro, Itens.NomeItem, ml.ChanceDrop, ml.Quantidade_max FROM monstroloot ml
 INNER JOIN monstros ON ml.id_monstro = monstros.MonstroID
 INNER JOIN itens ON ml.id_item = itens.ItemID
 ;
