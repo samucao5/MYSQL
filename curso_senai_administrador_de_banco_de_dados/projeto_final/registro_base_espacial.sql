@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS aero_espacial_mundial;
+USE aero_espacial_mundial;
 
 CREATE TABLE IF NOT EXISTS bases_aero_espacias(
 id_base_aero_espacial INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -495,9 +496,10 @@ LEFT JOIN tecnico_aero_espacias tae ON iae.id_tecnico = tae.id_tecnico_aero_espa
 LEFT JOIN relatorio_ocorrencia_aeroespacial roa ON iae.id_roa = roa.id_roa;
 
 CREATE OR REPLACE VIEW vw_aeronave_roa AS 
-SELECT ar.id_aeronave_roa,a.tipo_de_modelo , roa.descricao_ocorrencia FROM aeronave_roa ar
+SELECT ar.id_aeronave_roa,a.tipo_de_modelo , roa.descricao_ocorrencia, roa.data_roa ,tae.nome_tecnico AS responsavel FROM aeronave_roa ar
 LEFT JOIN aeronaves a ON ar.id_aeronave = a.id_aeronave
-LEFT JOIN relatorio_ocorrencia_aeroespacial roa ON ar.id_roa = roa.id_roa;
+LEFT JOIN relatorio_ocorrencia_aeroespacial roa ON ar.id_roa = roa.id_roa
+LEFT JOIN tecnico_aero_espacias tae ON roa.id_tecnico = tae.id_tecnico_aero_espacial 
 ;
 
 CREATE OR REPLACE VIEW vw_individuo_inquerito AS 
