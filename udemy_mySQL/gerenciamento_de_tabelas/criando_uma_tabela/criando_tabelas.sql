@@ -1,0 +1,8 @@
+CREATE DATABASE banco_de_dados;
+USE banco_de_dados;
+
+CREATE TABLE IF NOT EXISTS pessoas(
+id_pessaos INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+nome VARCHAR(100) NOT NULL,
+cpf CHAR(11) NOT NULL
+);
