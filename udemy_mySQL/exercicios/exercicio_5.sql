@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS teste_tipo_dados;
+USE teste_tipo_dados;
+
+CREATE TABLE IF NOT EXISTS cadastros(
+id_cadastro INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+nome VARCHAR(100) NOT NULL,
+sobrenome VARCHAR(100) NOT NULL
+);
