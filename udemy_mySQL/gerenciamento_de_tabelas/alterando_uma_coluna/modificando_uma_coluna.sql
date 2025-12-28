@@ -8,3 +8,5 @@ placa INT(100)
 
 ALTER TABLE carros
 MODIFY COLUMN placa CHAR(7);
+
+SELECT * FROM carros;
