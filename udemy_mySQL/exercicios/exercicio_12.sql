@@ -15,3 +15,5 @@ VALUES
 
 UPDATE hotel SET limite = 1000 WHERE id_hotel = 1;
 
+SELECT * FROM hotel;
+
