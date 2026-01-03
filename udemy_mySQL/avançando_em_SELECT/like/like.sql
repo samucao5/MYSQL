@@ -1,3 +1,4 @@
+USE employees;
 /*LIKE: ele tem a premissa de filtra ainda mais nossos resultados*/
 /* LIKE '% palavra': ele procura no final da palavra*/
 SELECT * FROM employees WHERE first_name LIKE '%a';
