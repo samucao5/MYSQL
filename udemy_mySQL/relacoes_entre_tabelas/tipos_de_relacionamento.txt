@@ -1,0 +1,11 @@
+One to One (um para um): Quando uma tabela possui uma conexão com outra e vice-versa 
+OBS: n por n .
+qualquer uma das duas pode ter o valor
+
+One to Many (um para muitos): Quando uma tabela possui diversos registros, porem só a segunda pode possuir conexão.
+OBS: n por m.
+a tabela muitos recebe o valor da tabela um
+
+Many to Many (muitos para muitos): Quando duas tabelas podem ter conexões com diversos registros entre eles
+OBS: m para m
+deve ser criado uma tabela só para armazenar estes valores
